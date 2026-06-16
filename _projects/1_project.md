@@ -1,81 +1,39 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
-importance: 1
-category: work
-related_publications: true
+title: Hand Bone Image Segmentation
+description: Naver BoostCamp AI Tech 7th (CV Track) · 2024.11
+img:
+importance: 2
+category: Deep Learning
+github: https://github.com/kkyungyoon/level2-cv-semanticsegmentation-cv-06-lv3
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+**Period**: 2024.11 · **Affiliation**: Naver BoostCamp AI Tech 7th (Computer Vision Track)
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Background
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+Bones have a significant impact on the structure and function of our bodies, so accurate bone segmentation is essential for developing medical diagnoses and treatment plans.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+## Problem Definition
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+An image containing a hand bone X-ray object is used as the model's input. The model performs a multi-channel prediction that produces a probability map over 29 classes, and then assigns each pixel to its corresponding class based on this map. Finally, the predicted results are converted into Run-Length Encoding (RLE) format for submission.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## Role
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Experiments to improve model performance.
 
-{% raw %}
+## Approach
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+🔗 [View individual experiments & contributions](https://github.com/kkyungyoon/level2-cv-semanticsegmentation-cv-06-lv3/tree/main/individual_project_summary)
 
-{% endraw %}
+- Attempted returning the loss of an auxiliary classifier
+- Searched for the optimal loss suited to the metric and the data
+- Attempted pseudo labeling
+- Attempted pixel shuffling / unshuffling to compensate for pixels lost due to interpolation
+- Attempted adding a 1×1 convolution layer to improve accuracy in the overlapping regions of the back-of-hand bones
+
+## Lessons Learned
+
+- The importance of being careful when selecting a model before running experiments
+- For some experiments, running follow-up experiments such as weight tuning can be more effective than running a wide variety of experiments
+- When working on a project within a limited time, time must be allocated well across the experiments you want to run, and it is worth moving on if an approach shows no effect or remains unsolved within a few days

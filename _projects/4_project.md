@@ -1,80 +1,33 @@
 ---
 layout: page
-title: project 4
-description: another without an image
+title: Sketch Image Data Classification
+description: Naver BoostCamp AI Tech 7th (CV Track) · 2024.09
 img:
-importance: 3
-category: fun
+importance: 5
+category: Deep Learning
+github: https://github.com/kkyungyoon/level1-imageclassification-cv-01
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+**Period**: 2024.09 · **Affiliation**: Naver BoostCamp AI Tech 7th (Computer Vision Track)
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Background
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+A sketch is an abstract, simplified form of image that lacks color, texture, and fine detail but focuses on basic shape and structure. By understanding these characteristics and developing a model that learns the basic structure of objects from sketch images, we aimed to recognize the differences from ordinary images and to strengthen our model-development skills from diverse perspectives.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+## Problem Definition
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+Out of 1,000 classes in total, we selected the top 500 objects with the largest number of images and used 25,035 image samples. The data was split into 15,021 training samples and 10,014 public & private evaluation samples. The input is the file names of the 10,014 images, and the output is the predicted probabilities over the 500 objects for each image.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## Role
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Experiments to improve model performance.
 
-{% raw %}
+## Approach
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+🔗 [View individual experiments & contributions](https://github.com/kkyungyoon/level1-imageclassification-cv-01/tree/main/individual_project_summary)
 
-{% endraw %}
+I extracted feature vectors from the early and middle stages of `Swin_base_patch4_window7_224`, computed coarse-category and mid-category losses respectively, and performed backpropagation by taking a weighted sum with the original fine-category loss. I hypothesized that stage-by-stage classification would be more effective than predicting all 500 classes directly.
+
+## Lessons Learned
+
+I learned the importance of systematic experimentation.

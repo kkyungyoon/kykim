@@ -1,81 +1,38 @@
 ---
 layout: page
-title: project 3 with very long name
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://www.wikipedia.org/
-importance: 3
-category: work
+title: Object Detection for Recycling Waste Classification
+description: Naver BoostCamp AI Tech 7th (CV Track) · 2024.10
+img:
+importance: 4
+category: Deep Learning
+github: https://github.com/kkyungyoon/level2-objectdetection-cv-01
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+**Period**: 2024.10 · **Affiliation**: Naver BoostCamp AI Tech 7th (Computer Vision Track)
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Background
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+When waste is sorted correctly, it can be recycled as a resource, but when it is sorted incorrectly, it is classified as waste and is either landfilled or incinerated. To address this, we aim to develop a model that automatically detects waste in photos.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+## Problem Definition
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+The goal is to develop a model that detects 10 types of waste objects in images. The input consists of images containing the 10 types of waste objects, along with bounding box coordinates and category information in COCO format, and the output returns bounding box coordinates, categories, and scores. Model performance is evaluated by mAP50: when the IoU (Intersection over Union) between a predicted bounding box and a ground-truth box is 0.5 or higher, it is treated as True, and the average precision is computed accordingly.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## Role
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Experiments to improve model performance (addressing the low mAP of small bounding boxes).
 
-{% raw %}
+## Approach
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+🔗 [View individual experiments & contributions](https://github.com/kkyungyoon/level2-objectdetection-cv-01/tree/main/individual_project_summary)
 
-{% endraw %}
+To address the low mAP of small bounding boxes:
+
+- **Small bbox detection via backbone change** — Changed the backbone to a Swin Transformer to improve small bbox detection performance.
+- Small bbox detection via image resolution change
+- Building a model that detects only small bboxes and then ensembling it
+- **Experiment assigning weights by bbox size** — Defined a loss function (SizeWeightedLoss) that applies different weights depending on bbox size, then trained the model.
+
+## Lessons Learned
+
+I learned the importance of redefining the criteria for "small bboxes" to fit the dataset, the need for caution when tuning weights, and the limited effectiveness of resolution changes and Mosaic augmentation. The key takeaway was that, rather than simply changing techniques, it is important to use strategies tailored to the characteristics of the dataset and to maintain the training stability of the model.
