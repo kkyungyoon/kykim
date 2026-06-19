@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper **"Direct Soft-Policy Sampling via Langevin Dynamics"** is available on [arXiv](https://arxiv.org/abs/2602.07873).
+Our paper **"Direct Soft-Policy Sampling via Langevin Dynamics"** is available on [arXiv](https://arxiv.org/abs/2602.07873). 🎉

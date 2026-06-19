@@ -31,6 +31,6 @@ latest_posts:
 
 I am an M.S. student at the [Graduate School of Artificial Intelligence](http://xai.korea.ac.kr/), Korea University, where I am a member of the **Decision Making Lab (DM-Lab)** advised by Prof. Byung-Jun Lee.
 
-My research centers on <span style="color: var(--global-theme-color); font-weight: 600;">reinforcement learning</span> and <span style="color: var(--global-theme-color); font-weight: 600;">generative models</span>. I am especially interested in the intersection of the two—leveraging generative models to advance reinforcement learning. More recently, I have also become interested in <span style="color: var(--global-theme-color); font-weight: 600;">world models</span>.
+My research centers on <span style="color: var(--global-theme-color); font-weight: 600;">reinforcement learning</span> and <span style="color: var(--global-theme-color); font-weight: 600;">generative models</span>. I am especially interested in the intersection of the two—leveraging generative models to advance reinforcement learning. I am also drawn to <span style="color: var(--global-theme-color); font-weight: 600;">robotics</span> as a setting where these methods come together.
 
 Before joining Korea University, I completed the Naver BoostCamp AI Tech program (Computer Vision track) and earned a B.B.A. from [Kyung Hee University](https://www.khu.ac.kr/kor/user/main/view.do). Feel free to reach out via [email](mailto:kykim803@korea.ac.kr).
