@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started my M.S. in Artificial Intelligence at Korea University, joining the Decision Making Lab (DM-Lab). 🎓
+Started my M.S. in Artificial Intelligence at Korea University, joining the **Decision Making Lab (DM-Lab)**. 🎓
