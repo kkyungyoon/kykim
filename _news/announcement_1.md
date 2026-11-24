@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper **"Score-Based One-step MeanFlow Policy Optimization"** is now available on [arXiv](https://arxiv.org/abs/2605.23365). 🎉
+Our paper **["Score-Based One-step MeanFlow Policy Optimization"](https://arxiv.org/abs/2605.23365)** is now available. 🎉

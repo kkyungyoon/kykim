@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper **"Latent Action Policies from Suboptimal Data"** is now available on [arXiv](https://arxiv.org/abs/2611.24482). 🎉
+Our paper **["Latent Action Policies from Suboptimal Data"](https://arxiv.org/abs/2611.24482)** is now available. 🎉
